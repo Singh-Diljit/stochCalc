@@ -1,4 +1,4 @@
-"""A collection of functions used to aide complicated processes."""
+"""A collection of functions used to aid complicated processes."""
 
 import sympy as sp
 from numpy.random import normal
