@@ -1,10 +1,33 @@
 """Implement Index class."""
 
 import numpy as np
-import os
-import sys 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-import helperFunctions.helperFunctions as hf
+
+def makeArray(X):
+    """Convert input into an array.
+
+    Parameters
+    ----------
+    X : * : Data to convert into an array.
+
+    Returns
+    -------
+    res : array : Array with data from input.
+
+    Notes
+    -----
+    * Input should be either an iterable or an instance of a supported
+    datatype. See numpy documentation for supported datatypes for an
+    array.
+
+    """
+    if type(X) == np.array:
+        res = X
+    elif hasattr(X, '__iter__'):
+        res = np.array(X)
+    else:
+        res = np.array([X])
+        
+    return res
 
 class Index:
     """Implement an indexing set, used in indexing stochastic processess."""
@@ -36,7 +59,7 @@ class Index:
         two point discerete set.
 
         """
-        I_ = hf.makeArray(I)
+        I_ = makeArray(I)
         if len(I_) == 1:
             self.I = np.append(I_, np.inf)
         else:
