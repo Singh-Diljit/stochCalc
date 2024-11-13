@@ -1,10 +1,12 @@
 """Unittesting for Ito"""
 
-import helperFunctions as hf
 import unittest
+import helperFunctions as hf
+from sympy import cos, sin, sqrt, symbols
+import sys
+sys.path.append('../StochCalc')
 from ito import ito
 from sde import SDE
-from sympy import cos, sin, sqrt, symbols
 
 class itoTest(unittest.TestCase):
     """Test Ito's formula."""

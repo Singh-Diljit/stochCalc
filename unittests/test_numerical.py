@@ -1,9 +1,11 @@
 """Numerical unittesting"""
 
-import helperFunctions as hf
 import unittest
-from sde import SDE
 from sympy import symbols
+import sys
+sys.path.append('../StochCalc')
+from sde import SDE
+import helperFunctions as hf
 
 def avgProcedure(dX, sims, trials):
     """The averaging procedure used in 'eulerMaruyama' and 'milstein'.

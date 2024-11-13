@@ -1,8 +1,10 @@
 """Unittesting for helperFunctions.py"""
 
 import unittest
-from helperFunctions import changeForm, changeVar, evalFunc, makeProcess
 from sympy import cos, pi, sin, symbols
+import sys
+sys.path.append('../StochCalc')
+from helperFunctions import changeForm, changeVar, evalFunc, makeProcess
 
 class changeFormTest(unittest.TestCase):
     """Test of 'changeForm' function."""

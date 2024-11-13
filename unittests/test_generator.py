@@ -1,9 +1,11 @@
 """Generator Unittests"""
 
 import unittest
+from sympy import cos, exp, pi, sin, simplify, Symbol, symbols
+import sys
+sys.path.append('../StochCalc')
 from generator import generator
 from sde import SDE
-from sympy import cos, exp, pi, sin, simplify, Symbol, symbols
 
 class GeneratorTest(unittest.TestCase):
     """Class to test aspects of the generator function."""
