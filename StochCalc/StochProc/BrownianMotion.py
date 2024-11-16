@@ -63,6 +63,6 @@ class BrownianMotion:
 if __name__ == "__main__":
     # Create a BrownianMotion instance
     bm = BrownianMotion(drift=0.1, mag=0.2)
-    
+    print(bm != 0)
     # Generate and graph sample paths
-    bm.graph(numPaths=5)
+    #bm.graph(numPaths=5)
