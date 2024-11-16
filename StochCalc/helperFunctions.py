@@ -2,6 +2,51 @@
 
 import sympy as sp
 from numpy.random import normal
+import numpy as np
+
+def makeArray(X):
+    """Convert input into an array.
+
+    Parameters
+    ----------
+    X : * : Data to convert into an array.
+
+    Returns
+    -------
+    res : array : Array with data from input.
+
+    Notes
+    -----
+    * Input should be either an iterable or an instance of a supported
+    datatype. See numpy documentation for supported datatypes for an
+    array.
+
+    """
+    if type(X) == np.array:
+        res = X
+    elif hasattr(X, '__iter__'):
+        res = np.array(X)
+    else:
+        res = np.array([X])
+        
+    return res
+
+def makeRepr(classData):
+    """Return repr(className).
+
+    def className:
+        def __init__(self, varName_0, ..., varName_N):
+            ...
+
+    className: str
+    initData : list : [(varName_i, value of varName_i) for i in range N]
+
+    """
+    className, initData = classData
+    inner = ', ' if len(initData) > 1 else ''
+    repData = inner.join([f'{name}={str(val)}' for name, val in initData])
+    
+    return f'{className}({repData})'
 
 #Functions for performing linear algebra on lists
 def transpose(M):

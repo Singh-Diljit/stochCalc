@@ -1,9 +1,7 @@
 """Implement Index class."""
 
 import numpy as np
-import sys
-sys.path.append('../')
-from helperFuncs import formatting, showData
+from helperFuncs import makeArray, makeRepr
 
 class Index:
     """Implement an indexing set, used in indexing stochastic processess."""
@@ -25,7 +23,7 @@ class Index:
         """
         self.isDiscrete = discreteSet is not None
         if self.isDiscrete:
-            self.I = formatting.makeArray(discreteSet)
+            self.I = makeArray(discreteSet)
         else:
             self.I = np.array([start, end])
 
@@ -153,14 +151,10 @@ class Index:
 
     def __repr__(self):
         """Return repr(self)."""
-        return showData.makeRepr(self.initData)
+        return makeRepr(self.initData)
 
     def __str__(self):
         """Return str(self)."""
         return str(self.I)
 
-
-a = Index(discreteSet = [1, 2, 3, 5, 6, 7])
-b = a.restrict(-7, -5)
-print(a.makeDiscrete(steps=10))
 
