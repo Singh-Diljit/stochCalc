@@ -31,6 +31,27 @@ def makeArray(X):
         
     return res
 
+def paddedVec(X, desiredLen):
+    X = makeArray(X)
+    padding = np.zeros(desiredLen - len(X))
+    return np.append(X, padding)
+    
+def wrapList(X, desiredLen=2):
+    if not isinstance(X, list):
+        X = [X]
+    if len(X) < desiredLen:
+        X = X + [0]*(desiredLen - len(X))
+    return X
+
+def reduceZero(nums, objs):
+    """nums: array of floats, objs: array of objs (or objs==0), same len."""
+    resNums, resObjs = [], []
+    for i, x in enumerate(nums):
+        if x != 0 and objs[i] != 0:
+            resNums.append(x)
+            resObjs.append(objs[i])
+    return np.array(resNums), resObjs
+
 def makeRepr(classData):
     """Return repr(className).
 
